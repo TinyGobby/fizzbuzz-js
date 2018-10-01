@@ -1,29 +1,64 @@
 describe("FizzBuzz", function() {
-  it("should return 'fizz' when passed multiples of 3", function(){
-    expect(FizzBuzz(3)).toEqual('fizz');
-    expect(FizzBuzz(6)).toEqual("fizz");
-    expect(FizzBuzz(9)).toEqual("fizz");
-    expect(FizzBuzz(303)).toEqual('fizz');
+
+  var fizzBuzz;
+
+  beforeEach(function() {
+    fizzBuzz = new FizzBuzz();
   });
 
-  it("should return 'buzz' when passed multiples of 5", function(){
-    expect(FizzBuzz(5)).toEqual("buzz");
-    expect(FizzBuzz(10)).toEqual("buzz");
-    expect(FizzBuzz(50)).toEqual("buzz");
-    expect(FizzBuzz(500)).toEqual("buzz");
-    expect(FizzBuzz(6846155)).toEqual('buzz');
+  describe('multiples of 3', function() {
+    it('returns Fizz when passed 3', function() {
+      expect(fizzBuzz.play(3)).toEqual('Fizz')
+    });
+
+    it("returns Fizz when passed 6", function() {
+      expect(fizzBuzz.play(3)).toEqual("Fizz");
+    });
+
+    it("returns Fizz when passed 303", function() {
+      expect(fizzBuzz.play(303)).toEqual("Fizz");
+    });
   });
 
-  it("returns 'fizzbuzz' when passed multiples of 15", function(){
-    expect(FizzBuzz(15)).toEqual("fizzbuzz");
-    expect(FizzBuzz(30)).toEqual("fizzbuzz");
-    expect(FizzBuzz(150)).toEqual('fizzbuzz');
+  describe('multiples of 5', function() {
+    it("returns Buzz when passed 5", function() {
+      expect(fizzBuzz.play(5)).toEqual("Buzz");
+    });
+
+    it("returns Buzz when passed 10", function() {
+      expect(fizzBuzz.play(10)).toEqual("Buzz");
+    });
+
+    it("returns Buzz when passed 6846155", function() {
+      expect(fizzBuzz.play(6846155)).toEqual("Buzz");
+    });
   });
 
-  it("returns the number when not divisible by 3 or 5", function (){
-    expect(FizzBuzz(1)).toEqual(1);
-    expect(FizzBuzz(2)).toEqual(2);
-    expect(FizzBuzz(7)).toEqual(7);
-    expect(FizzBuzz(92)).toEqual(92);
+  describe('multiples of 15', function() {
+    it("returns FizzBuzz when passed 15", function() {
+      expect(fizzBuzz.play(15)).toEqual("FizzBuzz");
+    });
+
+    it("returns FizzBuzz when passed 30", function() {
+      expect(fizzBuzz.play(30)).toEqual("FizzBuzz");
+    });
+
+    it("returns FizzBuzz when passed 150", function() {
+      expect(fizzBuzz.play(150)).toEqual("FizzBuzz");
+    });
+  });
+
+  describe('all other numbers', function() {
+    it("returns 1 when passed 1", function() {
+      expect(fizzBuzz.play(1)).toEqual(1);
+    });
+
+    it("returns 2 when passed 2", function() {
+      expect(fizzBuzz.play(2)).toEqual(2);
+    });
+    
+    it("returns 7 when passed 7", function() {
+      expect(fizzBuzz.play(7)).toEqual(7);
+    });
   });
 });
